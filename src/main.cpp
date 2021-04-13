@@ -5,7 +5,10 @@
 using namespace std;
 
 int main() {
-    vector<int> data = {1, 2, 3};
-    data.push_back(12);
-    cout << data[3] << endl;
+    fint f({2,5,11}, {1,2,2});
+
+    cout << f.get_valeur(2) << endl;
+    cout << f.get_puissance(0) << endl;
+
+    cout << f.list_size() << endl;
 }

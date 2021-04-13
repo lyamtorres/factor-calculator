@@ -2,6 +2,7 @@
 #define FINT_H
 
 #include <iostream>
+#include <vector>
 #include <limits>
 
 // choix d'un type entier non signé
@@ -64,8 +65,19 @@ public:
    // écriture de a sur un flot de sortie
    // friend std::ostream& operator<<(std::ostream& os, const fint& a);
 
-private:
+   int_t get_valeur(int indice);
 
+   mult_t get_puissance(int indice);
+
+   int list_size();
+
+private:
+   struct Facteur {
+      int_t valeur;
+      mult_t puissance;
+   };
+
+   std::vector<Facteur> liste;
 };
 
 #endif
