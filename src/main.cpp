@@ -5,10 +5,10 @@
 using namespace std;
 
 int main() {
-    fint f({2,5,11}, {1,2,2});
+    fint f({2,5,13,83}, {2,3,2,1});
 
-    cout << f.get_valeur(2) << endl;
-    cout << f.get_puissance(0) << endl;
+    int nombre = f.assemble(f);
 
-    cout << f.list_size() << endl;
+    cout << nombre << endl;
+    
 }

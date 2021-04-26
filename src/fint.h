@@ -65,19 +65,21 @@ public:
    // écriture de a sur un flot de sortie
    // friend std::ostream& operator<<(std::ostream& os, const fint& a);
 
-   int_t get_valeur(int indice);
+   int assemble(fint f);
 
-   mult_t get_puissance(int indice);
+   int_t get_value(int index);
+
+   mult_t get_exponent(int index);
 
    int list_size();
 
 private:
-   struct Facteur {
-      int_t valeur;
-      mult_t puissance;
+   struct factor {
+      int_t value;
+      mult_t exponent;
    };
 
-   std::vector<Facteur> liste;
+   std::vector<factor> array;
 };
 
 #endif
