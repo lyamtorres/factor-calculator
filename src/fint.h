@@ -68,7 +68,7 @@ public:
    // écriture de a sur un flot de sortie
    friend std::ostream& operator<<(std::ostream& os, const fint& a);
 
-   int assemble(fint f);
+   int assemble();
 
    int_t get_base(int index);
 

@@ -1,14 +1,25 @@
 #include <iostream>
-#include <vector>
 #include "fint.h"
 
 using namespace std;
 
 int main() {
-    fint f({2,5,13,83}, {2,3,2,1});
+    //fint f({2,5,13,83}, {2,3,2,1});
 
-    int nombre = f.assemble(f);
+    fint f(7013500);
 
-    cout << nombre << endl;
-    
+    cout << "f.base : ";
+    for (int i = 0; i < f.vector_size(); i++) {
+        cout << f.get_base(i) << " -> ";
+    }
+    cout << "fin" << endl;
+
+    cout << "f.exponent : ";
+    for (int i = 0; i < f.vector_size(); i++) {
+        cout << f.get_exponent(i) << " -> ";
+    }
+    cout << "fin" << endl;
+    cout << "" << endl;
+
+    cout << f.assemble() << endl;
 }
