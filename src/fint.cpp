@@ -1,5 +1,3 @@
-#include <iostream>
-#include <cmath>
 #include "fint.h"
 
 using namespace std;
@@ -11,12 +9,12 @@ fint::fint(int_t n)
 
 fint::fint(const initializer_list<int_t>& lf,const initializer_list<mult_t>& lm)
 {
-    factor fact;
+    Factor fact;
     for (int i = 0; i < lf.size(); i++) 
     {
-        fact.value = lf.begin()[i];
+        fact.base = lf.begin()[i];
         fact.exponent = lm.begin()[i];
-        array.push_back(fact); // 
+        factors.push_back(fact); // 
     }
 }
 
@@ -24,26 +22,26 @@ int fint::assemble(fint f) {
     int v, e, fact;
 
     fact = 1;
-    for (int i = 0; i < f.array.size(); i++) 
+    for (int i = 0; i < f.factors.size(); i++) 
     {
-        v = f.array[i].value;
-        e = f.array[i].exponent;
+        v = f.factors[i].base;
+        e = f.factors[i].exponent;
         fact = fact * pow(v, e);
     }
     return fact;
 }
 
-int_t fint::get_value(int index)
+int_t fint::get_base(int index)
 {
-    return array[index].value;
+    return factors[index].base;
 }
 
 mult_t fint::get_exponent(int index)
 {
-    return array[index].exponent;
+    return factors[index].exponent;
 }
 
-int fint::list_size() 
+int fint::vector_size() 
 {
-    return array.size();
+    return factors.size();
 }

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <cmath>
 #include <limits>
 
 // choix d'un type entier non signé
@@ -35,51 +36,53 @@ public:
    // ~fint();
 
    // retourne la valeur décimale de this, throws std::overflow_error
-   // int_t to_int() const;
+   int_t to_int() const;
 
    // teste si this divise a
-   // bool divides(const fint& a) const;
+   bool divides(const fint& a) const;
 
    // teste si this est premier
-   // bool is_prime() const;
+   bool is_prime() const;
 
-   // comparaisons
-   // friend bool operator==(const fint& a, const fint& b);
-   // friend bool operator!=(const fint& a, const fint& b);
+   // teste si a est égal à b
+   friend bool operator==(const fint& a, const fint& b);
+
+   // teste si a est different de b
+   friend bool operator!=(const fint& a, const fint& b);
    
    // retourne le plus petit commun multiple de a et b
-   // friend fint lcm(const fint& a, const fint& b);
+   friend fint lcm(const fint& a, const fint& b);
 
    // retourne le plus grand diviseur commun de a et b
-   // friend fint gcd(const fint& a, const fint& b);
+   friend fint gcd(const fint& a, const fint& b);
 
    // retourne a * b
-   // friend fint operator*(const fint& a, const fint& b);
+   friend fint operator*(const fint& a, const fint& b);
 
    // retourne a / b si b divise a, throws std::domain_error sinon
-   // friend fint operator/(const fint& a, const fint& b);
+   friend fint operator/(const fint& a, const fint& b);
 
    // retourne a puissance n
-   // friend fint pow(const fint& a, unsigned int n);
+   friend fint pow(const fint& a, unsigned int n);
 
    // écriture de a sur un flot de sortie
-   // friend std::ostream& operator<<(std::ostream& os, const fint& a);
+   friend std::ostream& operator<<(std::ostream& os, const fint& a);
 
    int assemble(fint f);
 
-   int_t get_value(int index);
+   int_t get_base(int index);
 
    mult_t get_exponent(int index);
 
-   int list_size();
+   int vector_size();
 
 private:
-   struct factor {
-      int_t value;
+   struct Factor {
+      int_t base;
       mult_t exponent;
    };
 
-   std::vector<factor> array;
+   std::vector<Factor> factors;
 };
 
 #endif
