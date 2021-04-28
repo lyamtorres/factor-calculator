@@ -43,18 +43,40 @@ fint::fint(int_t n) {
     } 
 }
 
-fint::fint(const initializer_list<int_t>& lf,const initializer_list<mult_t>& lm)
-{
+fint::fint(const initializer_list<int_t>& lf,const initializer_list<mult_t>& lm) {
     Factor factor;
-    for (int i = 0; i < lf.size(); i++) 
-    {
+
+    for (int i = 0; i < lf.size(); i++) {
         factor.base = lf.begin()[i];
         factor.exponent = lm.begin()[i];
         factors.push_back(factor);
     }
 }
 
-int fint::assemble() {
+bool fint::is_prime() const {
+    int n1 = this->assemble();
+
+    return is_prime_integer(n1);
+}
+
+bool fint::is_prime_integer(int n) const {
+    static int i = 2;
+
+    if(n == 0 || n == 1) {
+        return false;
+    }
+    if(n == i) {
+        return true;
+    }
+    if(n % i == 0) {
+        return false;
+    }
+    i += 1;
+
+    return is_prime_integer(n);
+}
+
+int fint::assemble() const {
     int v, e, fact;
 
     fact = 1;

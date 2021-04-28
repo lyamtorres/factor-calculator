@@ -68,7 +68,9 @@ public:
    // écriture de a sur un flot de sortie
    friend std::ostream& operator<<(std::ostream& os, const fint& a);
 
-   int assemble();
+   bool is_prime_integer(int n) const;
+
+   int assemble() const;
 
    int_t get_base(int index);
 
