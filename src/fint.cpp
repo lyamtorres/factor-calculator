@@ -81,9 +81,11 @@ bool operator!=(const fint& a, const fint& b) {
     return a.to_int() != b.to_int();
 }
 
-/* fint lcm(const fint& a, const fint& b) {
-
-} */
+fint lcm(const fint& a, const fint& b) {
+    fint f1 = gcd(a, b);
+    fint f2((a.to_int() / f1.to_int()) * b.to_int());
+    return f2;
+}
 
 fint gcd(const fint& a, const fint& b) {
     int_t n1, n2, result;

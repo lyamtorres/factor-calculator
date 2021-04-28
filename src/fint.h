@@ -9,7 +9,7 @@
 
 // choix d'un type entier non signé
 typedef unsigned long int int_t;
-typedef unsigned long int mult_t;
+typedef unsigned short int mult_t;
 
 // valeur maximum du type entier choisi
 static const int_t MAX_INT_T = std::numeric_limits<int_t>::max();
@@ -67,7 +67,7 @@ public:
    friend fint pow(const fint& a, unsigned int n);
 
    // écriture de a sur un flot de sortie
-   friend std::ostream& operator<<(std::ostream& os, const fint& a);
+   //friend std::ostream& operator<<(std::ostream& os, const fint& a);
 
    bool is_prime_integer(int n) const;
 

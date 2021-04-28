@@ -6,10 +6,10 @@ using namespace std;
 int main() {
     //fint f({2,5,13,83}, {2,3,2,1});
 
-    fint f1(20);
-    fint f2(8);
+    fint f1(50);
+    fint f2(100);
 
-    fint newF = (gcd(f1, f2));
+    fint newF = lcm(f1, f2);
     cout << newF.to_int() << endl;
 
 
