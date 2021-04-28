@@ -7,9 +7,11 @@ int main() {
     //fint f({2,5,13,83}, {2,3,2,1});
 
     fint f1(200);
-    fint f2(7);
+    fint f2(200);
+    fint f3(10);
 
-    cout << f2.divides(f1) << endl;
+    cout << operator==(f1, f2) << endl;
+    cout << operator!=(f1, f2) << endl;
 
 /*     cout << "f.base : ";
     for (int i = 0; i < f.vector_size(); i++) {

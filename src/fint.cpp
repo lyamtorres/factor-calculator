@@ -70,10 +70,17 @@ bool fint::divides(const fint& a) const {
 }
 
 bool fint::is_prime() const {
-    int n1 = this->to_int();
-
-    return is_prime_integer(n1);
+    return is_prime_integer(this->to_int());
 }
+
+bool operator==(const fint& a, const fint& b) {
+    return a.to_int() == b.to_int();
+}
+
+bool operator!=(const fint& a, const fint& b) {
+    return a.to_int() != b.to_int();
+}
+
 
 bool fint::is_prime_integer(int n) const {
     static int i = 2;
