@@ -6,10 +6,10 @@ using namespace std;
 int main() {
     //fint f({2,5,13,83}, {2,3,2,1});
 
-    fint f1(3);
-    fint f2(100);
+    fint f1(100);
+    fint f2(99);
 
-    fint f3 = pow(f1, 9);
+    fint f3 = operator%(f1, f2);
 
     cout << f3.to_int() << endl;
 

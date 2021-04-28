@@ -120,6 +120,14 @@ fint operator/(const fint& a, const fint& b) {
     exit(1);
 }
 
+fint operator%(const fint& a, const fint& b) {
+    if (b.divides(a) == true) {
+        exit(1);
+    }
+    fint f(a.to_int() % b.to_int());
+    return f;
+}
+
 fint pow(const fint& a, unsigned int n) {
     int_t x, result;
     
