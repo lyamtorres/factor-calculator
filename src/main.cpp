@@ -6,7 +6,10 @@ using namespace std;
 int main() {
     //fint f({2,5,13,83}, {2,3,2,1});
 
-    fint f1(13);
+    fint f1(200);
+    fint f2(7);
+
+    cout << f2.divides(f1) << endl;
 
 /*     cout << "f.base : ";
     for (int i = 0; i < f.vector_size(); i++) {
@@ -23,5 +26,5 @@ int main() {
 
     cout << f.assemble() << endl; */
 
-    cout << f1.is_prime() << endl;
+    //cout << f1.is_prime() << endl;
 }

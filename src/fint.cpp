@@ -53,8 +53,24 @@ fint::fint(const initializer_list<int_t>& lf,const initializer_list<mult_t>& lm)
     }
 }
 
+int_t fint::to_int() const {
+    int_t b, e, result;
+
+    result = 1;
+    for (int i = 0; i < factors.size(); i++) {
+        b = factors[i].base;
+        e = factors[i].exponent;
+        result = result * pow(b, e);
+    }
+    return result;
+}
+
+bool fint::divides(const fint& a) const {
+    return a.to_int() % this->to_int() == 0;    
+}
+
 bool fint::is_prime() const {
-    int n1 = this->assemble();
+    int n1 = this->to_int();
 
     return is_prime_integer(n1);
 }
@@ -74,19 +90,6 @@ bool fint::is_prime_integer(int n) const {
     i += 1;
 
     return is_prime_integer(n);
-}
-
-int fint::assemble() const {
-    int v, e, fact;
-
-    fact = 1;
-    for (int i = 0; i < factors.size(); i++) 
-    {
-        v = factors[i].base;
-        e = factors[i].exponent;
-        fact = fact * pow(v, e);
-    }
-    return fact;
 }
 
 int_t fint::get_base(int index)
