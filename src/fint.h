@@ -5,6 +5,7 @@
 #include <vector>
 #include <cmath>
 #include <limits>
+#include <stdexcept>
 
 // choix d'un type entier non signé
 typedef unsigned long int int_t;
@@ -69,8 +70,6 @@ public:
    friend std::ostream& operator<<(std::ostream& os, const fint& a);
 
    bool is_prime_integer(int n) const;
-
-   int assemble() const;
 
    int_t get_base(int index);
 

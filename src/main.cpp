@@ -6,12 +6,11 @@ using namespace std;
 int main() {
     //fint f({2,5,13,83}, {2,3,2,1});
 
-    fint f1(200);
-    fint f2(200);
-    fint f3(10);
+    fint f1(10);
+    fint f2(100);
 
-    cout << operator==(f1, f2) << endl;
-    cout << operator!=(f1, f2) << endl;
+    fint f3 = operator/(f1, f2);
+    cout << f3.to_int() << endl;
 
 /*     cout << "f.base : ";
     for (int i = 0; i < f.vector_size(); i++) {

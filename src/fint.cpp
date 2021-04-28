@@ -81,6 +81,24 @@ bool operator!=(const fint& a, const fint& b) {
     return a.to_int() != b.to_int();
 }
 
+fint operator*(const fint& a, const fint& b) {
+    fint f(a.to_int() * b.to_int());
+    return f;
+}
+
+fint operator/(const fint& a, const fint& b) {
+    try {
+        if (b.divides(a) == false) {
+            throw domain_error("b doit diviser a.");
+        }
+        fint f(a.to_int() / b.to_int());
+        return f;
+    } catch (domain_error error) {
+        cout << "Erreur : " << error.what() << endl;
+    }
+    exit(1);
+}
+
 
 bool fint::is_prime_integer(int n) const {
     static int i = 2;
