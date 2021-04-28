@@ -120,6 +120,19 @@ fint operator/(const fint& a, const fint& b) {
     exit(1);
 }
 
+fint pow(const fint& a, unsigned int n) {
+    int_t x, result;
+    
+    x = a.to_int();
+    result = 1;
+    while (n != 0) {
+        result *= x;
+        n -= 1;
+    }
+    fint f(result);
+    return f;
+}
+
 
 bool fint::is_prime_integer(int n) const {
     static int i = 2;

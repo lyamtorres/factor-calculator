@@ -6,11 +6,12 @@ using namespace std;
 int main() {
     //fint f({2,5,13,83}, {2,3,2,1});
 
-    fint f1(50);
+    fint f1(3);
     fint f2(100);
 
-    fint newF = lcm(f1, f2);
-    cout << newF.to_int() << endl;
+    fint f3 = pow(f1, 9);
+
+    cout << f3.to_int() << endl;
 
 
 /*     cout << "f.base : ";
