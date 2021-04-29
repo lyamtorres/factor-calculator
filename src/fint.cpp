@@ -52,6 +52,19 @@ fint::fint(const initializer_list<int_t>& lf,const initializer_list<mult_t>& lm)
     }
 }
 
+int_t fint::to_int() const {
+    int_t base, result;
+    mult_t exponent;
+
+    result = 1;
+    for (int i = 0; i < factors.size(); i++) {
+        base = factors[i].first;
+        exponent = factors[i].second;
+        result = result * pow(base, exponent);
+    }
+    return result;
+}
+
 /* fint::fint(int_t n) {
     Factor fact;
     
