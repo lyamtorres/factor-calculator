@@ -70,13 +70,13 @@ public:
    friend fint pow(const fint& a, unsigned int n);
 
    // écriture de a sur un flot de sortie
-   //friend std::ostream& operator<<(std::ostream& os, const fint& a);
+   friend std::ostream& operator<<(std::ostream& os, const fint& a);
 
    bool is_prime_integer(int n) const;
 
-   int_t get_base(int index);
+   int_t get_base(int index) const;
 
-   mult_t get_exponent(int index);
+   mult_t get_exponent(int index) const;
 
    int vector_size();
 

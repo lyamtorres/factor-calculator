@@ -6,28 +6,13 @@ using namespace std;
 int main() {
     //fint f({2,5,13,83}, {2,3,2,1});
 
-    fint f1(100);
-    fint f2(99);
+    fint f(7834543);
+    fint f2(10);
 
-    fint f3 = operator%(f1, f2);
-
-    cout << f3.to_int() << endl;
+    cout << f;
 
 
-/*     cout << "f.base : ";
-    for (int i = 0; i < f.vector_size(); i++) {
-        cout << f.get_base(i) << " -> ";
-    }
-    cout << "fin" << endl;
-
-    cout << "f.exponent : ";
-    for (int i = 0; i < f.vector_size(); i++) {
-        cout << f.get_exponent(i) << " -> ";
-    }
-    cout << "fin" << endl;
-    cout << "" << endl;
-
-    cout << f.assemble() << endl; */
+    //cout << f.to_int() << endl;
 
     //cout << f1.is_prime() << endl;
 }

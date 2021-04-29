@@ -43,6 +43,7 @@ fint::fint(int_t n) {
     } 
 }
 
+
 fint::fint(const initializer_list<int_t>& lf,const initializer_list<mult_t>& lm) {
     Factor factor;
 
@@ -54,7 +55,8 @@ fint::fint(const initializer_list<int_t>& lf,const initializer_list<mult_t>& lm)
 }
 
 int_t fint::to_int() const {
-    int_t b, e, result;
+    int_t b, result;
+    mult_t e;
 
     result = 1;
     for (int i = 0; i < factors.size(); i++) {
@@ -66,7 +68,7 @@ int_t fint::to_int() const {
 }
 
 bool fint::divides(const fint& a) const {
-    return a.to_int() % this->to_int() == 0;    
+    return a.to_int() % this->to_int() == 0;   
 }
 
 bool fint::is_prime() const {
@@ -141,6 +143,10 @@ fint pow(const fint& a, unsigned int n) {
     return f;
 }
 
+ostream& operator<<(std::ostream& os, const fint& a) {
+    os << a.to_int() << endl;
+    return os;
+}
 
 bool fint::is_prime_integer(int n) const {
     static int i = 2;
@@ -159,12 +165,12 @@ bool fint::is_prime_integer(int n) const {
     return is_prime_integer(n);
 }
 
-int_t fint::get_base(int index)
+int_t fint::get_base(int index) const
 {
     return factors[index].base;
 }
 
-mult_t fint::get_exponent(int index)
+mult_t fint::get_exponent(int index) const
 {
     return factors[index].exponent;
 }
