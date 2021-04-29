@@ -6,13 +6,14 @@ using namespace std;
 int main() {
     //fint f({2, 5, 13, 83}, {2 ,3 ,2 ,1});
 
-    fint f1(281);
-    fint f2(279);
+    fint f1(48);
+    fint f2(8);
 
     cout << f1;
+    cout << endl;
     cout << f2;
 
-    cout << operator!=(f1, f2) << endl;
+    cout << f2.divides(f1) << endl;
 
 /*     cout << f1.is_prime() << endl;
     cout << f2.is_prime() << endl; */

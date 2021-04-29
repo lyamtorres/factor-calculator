@@ -65,14 +65,14 @@ int_t fint::to_int() const {
     return result;
 }
 
-/* bool fint::divides(const fint& a) const {
+bool fint::divides(const fint& a) const {
     for (int i = 0; i < this->factors.size(); i++) {
-        if (this->factors[i].first != a.factors[i].first || this->factors[i].second < a.factors[i].second) {
+        if (this->factors[i].first != a.factors[i].first || a.factors[i].second < this->factors[i].second) {
             return 0;
         }
     }
     return 1;   
-} */
+}
 
 bool fint::is_prime() const {
     return (this->factors.size() <= 1 && this->factors[0].second == 1);
@@ -123,14 +123,6 @@ ostream& operator<<(std::ostream& os, const fint& a) {
 
 bool fint::divides(const fint& a) const {
     return a.to_int() % this->to_int() == 0;   
-}
-
-bool operator==(const fint& a, const fint& b) {
-    return a.to_int() == b.to_int();
-}
-
-bool operator!=(const fint& a, const fint& b) {
-    return a.to_int() != b.to_int();
 }
 
 fint lcm(const fint& a, const fint& b) {
