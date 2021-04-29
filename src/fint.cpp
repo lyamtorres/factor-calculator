@@ -2,7 +2,18 @@
 
 using namespace std;
 
-fint::fint(int_t n) {
+fint::fint(const initializer_list<int_t>& lf,const initializer_list<mult_t>& lm) {
+    int_t base;
+    mult_t exponent;
+
+    for (int i = 0; i < lf.size(); i++) {
+        base = lf.begin()[i];
+        exponent = lm.begin()[i];
+        factors.push_back(make_pair(base, exponent));
+    }
+}
+
+/* fint::fint(int_t n) {
     Factor fact;
     
     fact.base = 0;
@@ -41,10 +52,10 @@ fint::fint(int_t n) {
         fact.exponent = 1;
         factors.push_back(fact);
     } 
-}
+} */
 
 
-fint::fint(const initializer_list<int_t>& lf,const initializer_list<mult_t>& lm) {
+/* fint::fint(const initializer_list<int_t>& lf,const initializer_list<mult_t>& lm) {
     Factor factor;
 
     for (int i = 0; i < lf.size(); i++) {
@@ -65,9 +76,9 @@ int_t fint::to_int() const {
         result = result * pow(b, e);
     }
     return result;
-}
+} */
 
-bool fint::divides(const fint& a) const {
+/* bool fint::divides(const fint& a) const {
     return a.to_int() % this->to_int() == 0;   
 }
 
@@ -163,19 +174,21 @@ bool fint::is_prime_integer(int n) const {
     i += 1;
 
     return is_prime_integer(n);
-}
+} */
 
 int_t fint::get_base(int index) const
 {
-    return factors[index].base;
+    return factors[index].first;
 }
 
 mult_t fint::get_exponent(int index) const
 {
-    return factors[index].exponent;
+    return factors[index].second;
 }
+
+
 
 int fint::vector_size() 
 {
     return factors.size();
-}
+} 

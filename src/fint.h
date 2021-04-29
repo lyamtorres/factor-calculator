@@ -81,12 +81,13 @@ public:
    int vector_size();
 
 private:
-   struct Factor {
+/*    struct Factor {
       int_t base;
       mult_t exponent;
-   };
+   }; */
 
-   std::vector<Factor> factors;
+   //std::vector<Factor> factors;
+   std::vector<std::pair<int_t, mult_t>> factors;
 };
 
 #endif
