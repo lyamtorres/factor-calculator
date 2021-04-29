@@ -52,6 +52,17 @@ fint::fint(const initializer_list<int_t>& lf,const initializer_list<mult_t>& lm)
     }
 }
 
+fint::fint(vector<int_t> vf, vector<mult_t> vm) {
+    int_t base;
+    mult_t exponent;
+
+    for (int i = 0; i < vf.size(); i++) {
+        base = vf[i];
+        exponent = vm[i];
+        factors.push_back(make_pair(base, exponent));
+    }
+}
+
 int_t fint::to_int() const {
     int_t base, result;
     mult_t exponent;
@@ -94,6 +105,61 @@ bool operator!=(const fint& a, const fint& b) {
     return !operator==(a, b);
 }
 
+/* fint gcd(const fint& a, const fint& b) {
+    int_t n1, n2, result;
+
+    n1 = a.to_int();
+    n2 = b.to_int();
+    result = n2;
+    while (n1 % n2 > 0) {
+        result = n1 % n2;
+        n1 = n2;
+        n2 = result;
+    }
+    fint f(result);
+    return f;
+} */
+
+fint operator*(const fint& a, const fint& b) {
+    vector<int_t> vf;
+    vector<mult_t> vm;
+
+    for (int i = 0; i < a.factors.size(); i++) {
+        if (i < b.factors.size()) {
+            vm.push_back(a.factors[i].second + b.factors[i].second); 
+        } else {
+            vm.push_back(a.factors[i].second); 
+        }
+        vf.push_back(a.factors[i].first);
+    }
+    fint f(vf, vm);
+    return f;
+}
+
+fint operator/(const fint& a, const fint& b) {
+    vector<int_t> vf;
+    vector<mult_t> vm;
+
+    try {
+        if (b.divides(a) == 0) {
+            throw domain_error("b doit diviser a.");
+        }
+        for (int i = 0; i < a.factors.size(); i++) {
+            if (i < b.factors.size()) {
+                vm.push_back(a.factors[i].second - b.factors[i].second); 
+            } else {
+                vm.push_back(a.factors[i].second); 
+            }
+            vf.push_back(a.factors[i].first);
+        }
+        fint f(vf, vm);
+        return f;
+    } catch (domain_error error) {
+        cout << "Erreur : " << error.what() << endl;
+    }
+    exit(1);
+}
+
 ostream& operator<<(std::ostream& os, const fint& a) {
     os << "{";
     for (int i = 0; i < a.factors.size(); i++) {
@@ -119,11 +185,14 @@ ostream& operator<<(std::ostream& os, const fint& a) {
 }
 
 
-/* 
 
-bool fint::divides(const fint& a) const {
-    return a.to_int() % this->to_int() == 0;   
+/* fint operator*(const fint& a, const fint& b) {
+    fint f(a.to_int() * b.to_int());
+    return f;
 }
+ */
+
+/* 
 
 fint lcm(const fint& a, const fint& b) {
     fint f1 = gcd(a, b);
@@ -153,7 +222,7 @@ fint operator*(const fint& a, const fint& b) {
 
 fint operator/(const fint& a, const fint& b) {
     try {
-        if (b.divides(a) == false) {
+        if (b.divides(a) == 0) {
             throw domain_error("b doit diviser a.");
         }
         fint f(a.to_int() / b.to_int());

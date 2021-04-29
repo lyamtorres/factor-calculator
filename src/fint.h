@@ -33,6 +33,10 @@ public:
    fint(const std::initializer_list<int_t>& lf,
         const std::initializer_list<mult_t>& lm);
 
+   // constructeur à partir d'un tableau de facteurs premiers vf
+   // et d'un tableau de multiplicité vm
+   fint(std::vector<int_t> vf, std::vector<mult_t> vm);
+
    // destructeur
    // ~fint();
 
