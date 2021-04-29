@@ -72,21 +72,7 @@ public:
    // écriture de a sur un flot de sortie
    friend std::ostream& operator<<(std::ostream& os, const fint& a);
 
-   bool is_prime_integer(int n) const;
-
-   int_t get_base(int index) const;
-
-   mult_t get_exponent(int index) const;
-
-   int vector_size();
-
 private:
-/*    struct Factor {
-      int_t base;
-      mult_t exponent;
-   }; */
-
-   //std::vector<Factor> factors;
    std::vector<std::pair<int_t, mult_t>> factors;
 };
 
