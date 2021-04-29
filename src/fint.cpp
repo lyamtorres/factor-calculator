@@ -65,6 +65,30 @@ int_t fint::to_int() const {
     return result;
 }
 
+ostream& operator<<(std::ostream& os, const fint& a) {
+    os << "{";
+    for (int i = 0; i < a.factors.size(); i++) {
+        if (i != a.factors.size() - 1) {
+            os << a.factors[i].first << ", ";
+        } else {
+            os << a.factors[i].first;
+        }
+    }
+    os << "}" << endl;
+
+    os << "{";
+    for (int i = 0; i < a.factors.size(); i++) {
+        if (i != a.factors.size() - 1) {
+            os << a.factors[i].second << ", ";
+        } else {
+            os << a.factors[i].second;
+        }
+    }
+    os << "}" << endl;
+
+    return os;
+}
+
 /* fint::fint(int_t n) {
     Factor fact;
     
