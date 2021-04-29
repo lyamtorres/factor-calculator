@@ -2,6 +2,45 @@
 
 using namespace std;
 
+fint::fint(int_t n) {
+    int_t base = 0;
+    mult_t exponent = 1;
+
+    while (n % 2 == 0) {
+        if (base == 0) {
+            base = 2;
+        } else {
+            exponent += 1;
+        }
+        n /= 2;
+    }
+    if (base != 0) {
+        factors.push_back(make_pair(base, exponent));
+    }
+
+    for (int i = 3; i <= sqrt(n); i += 2) {
+        base = 0;
+        exponent = 1;
+        while (n % i == 0) {
+            if (base == 0) {
+                base = i;
+            } else {
+                exponent += 1;
+            }
+            n /= i;
+        }
+        if (base == i) {
+            factors.push_back(make_pair(base, exponent));
+        }
+    }
+
+    if (n > 2) {
+        base = n;
+        exponent = 1;
+        factors.push_back(make_pair(base, exponent));
+    } 
+}
+
 fint::fint(const initializer_list<int_t>& lf,const initializer_list<mult_t>& lm) {
     int_t base;
     mult_t exponent;

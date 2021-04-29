@@ -4,7 +4,9 @@
 using namespace std;
 
 int main() {
-    fint f({2, 5, 13, 83}, {2 ,3 ,2 ,1});
+    /* fint f({2, 5, 13, 83}, {2 ,3 ,2 ,1}); */
+
+    fint f(7013500);
 
     cout << "{";
     for (int i = 0; i < f.vector_size(); i++) {
